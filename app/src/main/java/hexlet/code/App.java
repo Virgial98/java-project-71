@@ -1,11 +1,17 @@
 package hexlet.code;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import picocli.CommandLine;
+import picocli.CommandLine.Command;
+import picocli.CommandLine.Option;
+import picocli.CommandLine.Parameters;
+
+import hexlet.code.MainCommand;
+
+    @Command(mixinStandardHelpOptions = true, version = "0.01")
+
 public class App {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello world!");
+        int exitCode = new CommandLine(new MainCommand()).execute(args);
+        System.exit(exitCode);
     }
 }
